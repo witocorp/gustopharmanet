@@ -1,0 +1,20 @@
+<?php
+
+use yii\helpers\Html;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Paisusuario */
+
+$this->title = 'Create Paisusuario';
+$this->params['breadcrumbs'][] = ['label' => 'Paisusuarios', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="paisusuario-create">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
+
+</div>

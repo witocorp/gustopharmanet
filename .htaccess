@@ -1,0 +1,14 @@
+# Simple File List Access Restricter
+
+RewriteEngine On
+
+# 1) If NOT the current host
+RewriteCond %{HTTP_HOST}@@%{HTTP_REFERER} !^([^@]*)@@https?://\1/.*
+
+# 2) Deny access to these types
+RewriteRule \.(PDF|JPG|JPGE|MP4|PNG|GIF|PSD|AI|pdf|jpg|jpge|mp4|png|gif|psd|ai?)$ - [F]
+
+RewriteCond %{HTTP_HOST} gustopharmanet\.com [NC]
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ /frontend/web/$1 [L]
+Redirect 301 /admin http://www.gustopharmanet.com/backend/web
