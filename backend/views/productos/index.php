@@ -75,6 +75,7 @@ $this->registerJsFile("@web/js/actions.js");
 						<i @mouseover="showIndex = index" class="fas fa-cog icono_op icono_opcion"></i>
 						<div v-if="showIndex === index" @mouseleave="showIndex = null"  class="icono_op no_show opciones_caja">
 							<a v-bind:href="'<?php echo Url::base(true);?>/index.php?r=productos%2Fupdate&amp;id='+responder.id"><i class="fas fa-pencil-alt"></i> Edit Product</a><br/>
+							<a v-bind:href="'<?php echo Url::base(true);?>/index.php?r=productos%2Fdelete&amp;id='+responder.id" title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this Product?" data-method="post" data-pjax="0"><i class="fas fa-minus-circle"></i> Delete Product</a>
 						</div>
 						<a v-bind:href="'<?php echo Url::base(true);?>/index.php?r=carpetas%2Findex&amp;id='+responder.id">
 							<div class="col mr-2">

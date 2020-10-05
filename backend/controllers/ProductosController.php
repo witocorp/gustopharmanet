@@ -160,9 +160,11 @@ class ProductosController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $producto = $this->findModel($id);
+        $marcaid = $producto->idMarca;
+        unlink('../../'.$producto->url);
+        $producto->delete();
+        return $this->redirect(['index', 'id' => $marcaid]);
     }
 
     /**

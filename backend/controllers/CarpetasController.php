@@ -128,9 +128,10 @@ class CarpetasController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $carpetas = $this->findModel($id);
+        $productoid = $carpetas->idProducto;
+        $carpetas->delete();
+        return $this->redirect(['index', 'id' => $productoid]);
     }
 
     /**

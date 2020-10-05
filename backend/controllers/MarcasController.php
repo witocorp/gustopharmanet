@@ -25,7 +25,7 @@ class MarcasController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['GET'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
@@ -159,21 +159,12 @@ class MarcasController extends Controller
      */
     public function actionDelete()
     {
-		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-		$id = Yii::$app->request->get('id');	
-        $datoEliminar = $this->findModel($id);
-		$pais = $datoEliminar->pais;
-		$datoEliminar->delete();
-		
-		$searchModel = new MarcasSearch(['pais' => $pais,]);
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-		$datos = array();
-		foreach($dataProvider->getModels() as $dato):
-			$datos[] = $dato;
-		endforeach;
-		return $datos;
-		
-		
+		$id = Yii::$app->request->get('id');
+        $marca = $this->findModel($id);
+        $paisid = $archivo->pais;
+        unlink('../../'.$marca->url);
+        $marca->delete();
+        return $this->redirect(['pais', 'id' => $paisid]);	
     }
 
     /**

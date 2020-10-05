@@ -77,6 +77,7 @@ $this->registerJsFile("@web/js/actions.js");
 						<i @mouseover="showIndex = index" class="fas fa-cog icono_op icono_opcion"></i>
 						<div v-if="showIndex === index" @mouseleave="showIndex = null"  class="icono_op no_show opciones_caja">
 							<a v-bind:href="'<?php echo Url::base(true);?>/index.php?r=carpetas%2Fupdate&amp;id='+responder.id"><i class="fas fa-pencil-alt"></i> Edit Folder</a><br/>
+							<a v-bind:href="'<?php echo Url::base(true);?>/index.php?r=carpetas%2Fdelete&amp;id='+responder.id" title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this folder?" data-method="post" data-pjax="0"><i class="fas fa-minus-circle"></i> Delete Folder</a>
 						</div>
 							<div class="col mr-2">
 							  <a v-bind:href="'<?php echo Url::base(true);?>/index.php?r=archivos%2Findex&amp;id='+responder.id">

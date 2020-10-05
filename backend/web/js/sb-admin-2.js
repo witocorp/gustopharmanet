@@ -55,7 +55,7 @@
 
 })(jQuery); // End of use strict
 
-$("document").ready(function(){
+/*$("document").ready(function(){
 	$(".no_show").hide();
     $(".icono_opcion").hover(
       function() {
@@ -73,4 +73,4 @@ $("document").ready(function(){
         $(this).prev().show();
       }
     );
-});
+});*/
